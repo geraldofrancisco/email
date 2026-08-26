@@ -4,7 +4,7 @@ import com.thor.email.adapters.in.mapper.EmailTypeAdapterMapper;
 import com.thor.email.adapters.in.rest.swagger.EmailTypeSwagger;
 import com.thor.email.application.service.EmailTypeService;
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
-import com.thor.email.domain.response.EmailTypeResponse;
+import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +22,7 @@ public class EmailTypeController implements EmailTypeSwagger {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   @Override
-  public EmailTypeResponse create(EmailTypeRequest request) {
+  public EmailTypeCreateResponse create(EmailTypeRequest request) {
     var dto = EmailTypeAdapterMapper.toCreate(request);
     service.create(dto);
     return EmailTypeAdapterMapper.toResponse(dto);

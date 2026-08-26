@@ -1,4 +1,4 @@
-package com.thor.email.domain.response;
+package com.thor.email.domain.response.email_type;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_ID;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_NAME;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailTypeResponse {
+public class EmailTypeCreateResponse {
 
   @Schema(description = EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_ID, example = MONGO_ID_EXAMPLE)
   private String id;

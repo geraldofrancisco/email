@@ -4,7 +4,7 @@ import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
 import com.thor.email.domain.request.email_type.EmailTypeFieldRequest;
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
-import com.thor.email.domain.response.EmailTypeResponse;
+import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -30,8 +30,8 @@ public class EmailTypeAdapterMapper {
         .toList();
   }
 
-  public static EmailTypeResponse toResponse(EmailTypeDTO dto) {
-    return EmailTypeResponse.builder()
+  public static EmailTypeCreateResponse toResponse(EmailTypeDTO dto) {
+    return EmailTypeCreateResponse.builder()
         .id(dto.getId().toHexString())
         .name(dto.getName())
         .build();

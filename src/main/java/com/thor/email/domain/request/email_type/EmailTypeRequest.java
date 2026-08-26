@@ -1,10 +1,10 @@
 package com.thor.email.domain.request.email_type;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_BODY_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_REQUIRED;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELDS_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_NAME_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_NAME_REQUIRED;
 import static com.thor.email.domain.constants.ProjectConstants.INTERPOLATE_VARIABLE_IN_HTML;
 
@@ -30,16 +30,16 @@ import lombok.NoArgsConstructor;
 @GroupSequence({EmailTypeRequest.class, SecondValidationGroup.class})
 public class EmailTypeRequest {
 
-  @Schema(description = EMAIL_TYPE_REQUEST_BODY_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_BODY_DESCRIPTION)
   @NotEmpty(message = EMAIL_TYPE_REQUEST_BODY_REQUIRED)
   @ValidHTML
   private String body;
 
-  @Schema(description = EMAIL_TYPE_REQUEST_NAME_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_NAME_DESCRIPTION)
   @NotEmpty(message = EMAIL_TYPE_REQUEST_NAME_REQUIRED)
   private String name;
 
-  @Schema(description = EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
   @Builder.Default
   @Valid
   private List<EmailTypeFieldRequest> fields = new ArrayList<>();
