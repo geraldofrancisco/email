@@ -1,7 +1,10 @@
 package com.thor.email.domain.request;
 
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_NAME_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EmailTypeFieldRequest {
 
+  @Schema(description = EMAIL_TYPE_FIELD_REQUEST_NAME_DESCRIPTION)
   @NotEmpty(message = EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED)
   private String name;
 
+  @Schema( description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
   @Builder.Default
   private Boolean required = false;
 }

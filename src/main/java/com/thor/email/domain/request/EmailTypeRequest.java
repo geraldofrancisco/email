@@ -1,11 +1,15 @@
 package com.thor.email.domain.request;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_REQUIRED;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION;
+import static com.thor.email.domain.constants.ProjectConstants.INTERPOLATE_VARIABLE_IN_HTML;
 
 import com.thor.email.domain.request.validation.SecondValidationGroup;
 import com.thor.email.domain.request.validation.ValidHTML;
 import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.GroupSequence;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.AssertTrue;
@@ -24,10 +28,12 @@ import lombok.NoArgsConstructor;
 @GroupSequence({EmailTypeRequest.class, SecondValidationGroup.class})
 public class EmailTypeRequest {
 
+  @Schema(description = EMAIL_TYPE_REQUEST_BODY_DESCRIPTION)
   @NotEmpty(message = EMAIL_TYPE_REQUEST_BODY_REQUIRED)
   @ValidHTML
   private String body;
 
+  @Schema(description = EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION)
   @Builder.Default
   @Valid
   private List<EmailTypeFieldRequest> fields = new ArrayList<>();
@@ -39,7 +45,8 @@ public class EmailTypeRequest {
       return true;
     }
 
-    return fields.stream()
-        .allMatch(field -> body.contains(String.format("@@%s@@", field.getName())));
+    return fields.parallelStream()
+        .allMatch(
+            field -> body.contains(String.format(INTERPOLATE_VARIABLE_IN_HTML, field.getName())));
   }
 }
