@@ -1,10 +1,10 @@
-package com.thor.email.adapters.in.rest.validation.impl;
+package com.thor.email.domain.request.validation.impl;
 
 import static org.jsoup.parser.Parser.htmlParser;
 
 import com.helger.css.ECSSVersion;
 import com.helger.css.reader.CSSReader;
-import com.thor.email.adapters.in.rest.validation.ValidHTML;
+import com.thor.email.domain.request.validation.ValidHTML;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import java.util.Objects;

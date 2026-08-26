@@ -1,6 +1,6 @@
-package com.thor.email.adapters.in.rest.validation;
+package com.thor.email.domain.request.validation;
 
-import com.thor.email.adapters.in.rest.validation.impl.HTMLContentValidator;
+import com.thor.email.domain.request.validation.impl.HTMLContentValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
