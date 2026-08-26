@@ -7,4 +7,19 @@ import lombok.NoArgsConstructor;
 public class ProjectConstants {
 
   public static final String INTERPOLATE_VARIABLE_IN_HTML = "@@%s@@";
+
+  public static final String PROJECT_SWAGGER_STATUS_OK = "200";
+  public static final String PROJECT_SWAGGER_STATUS_CREATED = "201";
+
+  public static final String DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+  public static final String DATE_PATTERN = "yyyy-MM-dd";
+
+  public static final String PROJECT_GENERIC_EXCEPTION = "PROJECT_GENERIC_EXCEPTION";
+
+  public static final String PROJECT_EXCEPTION_FIELD_RESPONSE_NAME_DESCRIPTION = "Field name exception";
+  public static final String PROJECT_EXCEPTION_FIELD_RESPONSE_MESSAGE_DESCRIPTION = "Message describing the reason for the field exception";
+  public static final String PROJECT_EXCEPTION_RESPONSE_TIMESTAMP_DESCRIPTION = "Date time of exception";
+  public static final String PROJECT_EXCEPTION_RESPONSE_ERROR_DESCRIPTION = "Description of exception";
+  public static final String PROJECT_EXCEPTION_RESPONSE_LIST_FIELDS_DESCRIPTION = "List with description of fields that have an error";
+  public static final String PROJECT_EXCEPTION_RESPONSE_HTTP_STATUS_DESCRIPTION = "Http response status";
 }

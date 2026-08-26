@@ -1,4 +1,4 @@
-package com.thor.email.domain.request;
+package com.thor.email.domain.request.email_type;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_NAME_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED;
@@ -23,5 +23,5 @@ public class EmailTypeFieldRequest {
 
   @Schema( description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
   @Builder.Default
-  private Boolean required = false;
+  private boolean required = false;
 }

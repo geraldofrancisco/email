@@ -1,5 +1,8 @@
 package com.thor.email.domain.document;
 
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_BODY_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CREATION_DATETIME_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELDS_FIELD;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_TABLE_NAME;
 
 import java.time.LocalDateTime;
@@ -23,13 +26,12 @@ public class MongoEmailTypeDocument {
   @Id
   private ObjectId id;
 
-  //@Field(name = )
-  @Builder.Default
-  private LocalDateTime timestampCreatedDate = LocalDateTime.now();
+  @Field(name = EMAIL_TYPE_CREATION_DATETIME_FIELD)
+  private LocalDateTime timestampCreatedDate;
 
-  private String name;
-
+  @Field(EMAIL_TYPE_BODY_FIELD)
   private String body;
 
-  private List<String> fields;
+  @Field(EMAIL_TYPE_FIELDS_FIELD)
+  private List<MongoEmailTypeFieldDocument> fields;
 }

@@ -1,0 +1,23 @@
+package com.thor.email.adapters.in.rest;
+
+import com.thor.email.adapters.in.rest.swagger.EmailTypeSwagger;
+import com.thor.email.domain.request.email_type.EmailTypeRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1/email-type")
+@RequiredArgsConstructor
+public class EmailTypeController implements EmailTypeSwagger {
+
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  @Override
+  public String create(EmailTypeRequest request) {
+    return "";
+  }
+}

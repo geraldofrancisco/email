@@ -1,4 +1,4 @@
-package com.thor.email.domain.request;
+package com.thor.email.domain.request.email_type;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_DESCRIPTION;
