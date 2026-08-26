@@ -4,6 +4,8 @@ import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUE
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_REQUIRED;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_NAME_REQUIRED;
 import static com.thor.email.domain.constants.ProjectConstants.INTERPOLATE_VARIABLE_IN_HTML;
 
 import com.thor.email.domain.request.validation.SecondValidationGroup;
@@ -32,6 +34,10 @@ public class EmailTypeRequest {
   @NotEmpty(message = EMAIL_TYPE_REQUEST_BODY_REQUIRED)
   @ValidHTML
   private String body;
+
+  @Schema(description = EMAIL_TYPE_REQUEST_NAME_DESCRIPTION)
+  @NotEmpty(message = EMAIL_TYPE_REQUEST_NAME_REQUIRED)
+  private String name;
 
   @Schema(description = EMAIL_TYPE_REQUEST_FIELDS_DESCRIPTION)
   @Builder.Default

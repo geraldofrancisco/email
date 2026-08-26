@@ -1,4 +1,4 @@
-package com.thor.email.domain.document;
+package com.thor.email.domain.document.email_type;
 
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_NAME_FIELD;
 import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUIRED_FIELD;
@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MongoEmailTypeFieldDocument {
+public class EmailTypeFieldDocument {
 
   @Field(EMAIL_TYPE_FIELD_NAME_FIELD)
   private String name;

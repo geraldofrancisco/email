@@ -9,6 +9,7 @@ import static com.thor.email.domain.constants.ProjectConstants.PROJECT_SWAGGER_S
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
+import com.thor.email.domain.response.EmailTypeResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -29,6 +30,6 @@ public interface EmailTypeSwagger {
           content =
           @Content(
               mediaType = APPLICATION_JSON_VALUE,
-              schema = @Schema(implementation = String.class))))
-  String create(@RequestBody @Valid final EmailTypeRequest request);
+              schema = @Schema(implementation = EmailTypeResponse.class))))
+  EmailTypeResponse create(@RequestBody @Valid final EmailTypeRequest request);
 }

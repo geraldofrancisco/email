@@ -18,6 +18,8 @@ public class EmailTypeDTO {
   @Builder.Default
   private LocalDateTime timestampCreatedDate = LocalDateTime.now();
 
+  private String name;
+
   private String body;
 
   private List<EmailTypeFieldDTO> fields;
