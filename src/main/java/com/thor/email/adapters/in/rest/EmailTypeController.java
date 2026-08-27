@@ -36,7 +36,7 @@ public class EmailTypeController implements EmailTypeSwagger {
   @Override
   public EmailPageResponse getByFilter(String name, Integer size, String cursor) {
     var filter = EmailTypeMapper.toFilter(name, size, cursor);
-
+    var response = service.getByFilter(filter);
     return null;
   }
 }

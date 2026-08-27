@@ -11,6 +11,7 @@ import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Sort;
@@ -41,7 +42,8 @@ public class EmailTypeRepositoryImpl implements EmailTypeRepository {
     var criteriaList = new ArrayList<Criteria>();
 
     if (StringUtils.isNotBlank(filter.getName())) {
-      criteriaList.add(Criteria.where(EMAIL_TYPE_NAME_FIELD).is(filter.getName()));
+      String regexPattern = Pattern.quote(filter.getName());
+      criteriaList.add(Criteria.where(EMAIL_TYPE_NAME_FIELD).regex(regexPattern, "i"));
     }
 
     if (!criteriaList.isEmpty()) {
