@@ -11,9 +11,11 @@ import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.regex.Pattern;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.bson.types.ObjectId;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Window;
@@ -37,7 +39,7 @@ public class EmailTypeRepositoryImpl implements EmailTypeRepository {
   }
 
   @Override
-  public Window<EmailTypeDocument> getByFilter(EmailTypeFilterDTO filter) {
+  public Window<EmailTypeDTO> getByFilter(EmailTypeFilterDTO filter) {
     var query = new Query();
     var criteriaList = new ArrayList<Criteria>();
 
@@ -55,6 +57,12 @@ public class EmailTypeRepositoryImpl implements EmailTypeRepository {
 
     return mongoTemplate.query(EmailTypeDocument.class)
         .matching(query)
-        .scroll(filter.getScrollPosition());
+        .scroll(filter.getScrollPosition())
+        .map(EmailTypeMapper::toDTO);
+  }
+
+  @Override
+  public Optional<EmailTypeDTO> getById(ObjectId id) {
+    return repository.findById(id).map(EmailTypeMapper::toDTO);
   }
 }

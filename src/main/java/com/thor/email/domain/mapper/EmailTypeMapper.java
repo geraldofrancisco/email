@@ -63,29 +63,25 @@ public class EmailTypeMapper extends PageMapper {
         .build();
   }
 
-  public static EmailTypePageDTO toPageDTO(Window<EmailTypeDocument> window) {
+  public static EmailTypePageDTO toPageDTO(Window<EmailTypeDTO> window) {
     return EmailTypePageDTO.builder()
-        .content(toListPageDTO(window.getContent()))
+        .content(window.getContent())
         .hasNext(window.hasNext())
-        .nextPosition(window.getContent().stream()
-            .map(EmailTypeDocument::getId)
+        .nextPosition(window.hasNext() ? window.getContent().stream()
+            .map(EmailTypeDTO::getId)
             .map(ObjectId::toString)
-            .reduce((_, second) -> second).orElse(null)
+            .reduce((_, second) -> second).orElse(null): null
         )
         .build();
   }
 
   private static List<EmailTypeDTO> toListPageDTO(List<EmailTypeDocument> list) {
     return list.parallelStream()
-        .map(e -> EmailTypeDTO.builder()
-            .id(e.getId())
-            .timestampCreatedDate(e.getTimestampCreatedDate())
-            .name(e.getName())
-            .body(e.getBody())
-            .fields(toListFieldDTO(e.getFields()))
-            .build()
-        ).toList();
+        .map(EmailTypeMapper::toDTO)
+        .toList();
   }
+
+
 
   private static List<EmailTypeFieldDTO> toListFieldDTO(List<EmailTypeFieldDocument> list) {
     return list.stream()
