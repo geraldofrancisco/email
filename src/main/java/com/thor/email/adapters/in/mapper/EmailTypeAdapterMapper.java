@@ -32,7 +32,7 @@ public class EmailTypeAdapterMapper {
 
   public static EmailTypeCreateResponse toResponse(EmailTypeDTO dto) {
     return EmailTypeCreateResponse.builder()
-        .id(dto.getId().toHexString())
+        .id(dto.getId().toString())
         .name(dto.getName())
         .build();
   }

@@ -7,13 +7,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmailTypeDTO {
-  private ObjectId id;
+
+  @Id
+  @Builder.Default
+  private ObjectId id = new ObjectId();
 
   @Builder.Default
   private LocalDateTime timestampCreatedDate = LocalDateTime.now();

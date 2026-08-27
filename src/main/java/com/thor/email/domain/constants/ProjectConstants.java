@@ -11,7 +11,11 @@ public class ProjectConstants {
   public static final String PROJECT_SWAGGER_STATUS_OK = "200";
   public static final String PROJECT_SWAGGER_STATUS_CREATED = "201";
 
+  public static final String DEFAULT_PAGE_SIZE_VALUE = "25";
+
   public static final String MONGO_ID_EXAMPLE = "6a8a26b048b96cd0f266d835";
+  public static final String MONGO_ID_NAME = "_id";
+
 
   public static final String DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
   public static final String DATE_PATTERN = "yyyy-MM-dd";

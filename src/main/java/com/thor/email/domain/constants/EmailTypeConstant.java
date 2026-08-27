@@ -16,11 +16,19 @@ public class EmailTypeConstant {
 
   public static final String EMAIL_TYPE_CONTROLLER_TAG_NAME = "Email Type Controller";
   public static final String EMAIL_TYPE_CONTROLLER_TAG_DESCRIPTION = "Controller for types of emails that can be sent.";
+
   public static final String EMAIL_TYPE_CONTROLLER_CREATE_SUMMARY = "Create type";
   public static final String EMAIL_TYPE_CONTROLLER_CREATE_DESCRIPTION = "Controller for create types of emails that can be sent.";
   public static final String EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_DESCRIPTION = "Email type creation identifier";
   public static final String EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_ID = "Unique identifier assigned by the system to locate the created email type.";
   public static final String EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_NAME = "Name assigned by the requester to facilitate locating the model.";
+
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_SUMMARY = "Get all created emails.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_DESCRIPTION = "Get all created emails in a paginated manner.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_RESPONSE_DESCRIPTION = "Returns a paginated list of registered email types.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION = "Optional parameter for lookup by email name";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_SIZE_DESCRIPTION = "Optional parameter for query size";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_HEADER_CURSOR_DESCRIPTION = "Optional header to declare the last record queried";
 
   public static final String EMAIL_TYPE_REQUEST_BODY_REQUIRED = "EMAIL_TYPE_REQUEST_BODY_REQUIRED";
   public static final String EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS = "EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS";

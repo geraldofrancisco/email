@@ -4,12 +4,13 @@ import com.thor.email.domain.document.email_type.EmailTypeDocument;
 import com.thor.email.domain.document.email_type.EmailTypeFieldDocument;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
+import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EmailTypeMapper {
+public class EmailTypeMapper extends PageMapper {
 
   public static EmailTypeDocument toDocument(EmailTypeDTO dto) {
     return EmailTypeDocument.builder()
@@ -49,5 +50,13 @@ public class EmailTypeMapper {
             .build()
         )
         .toList();
+  }
+
+  public static EmailTypeFilterDTO toFilter(String name, Integer size, String cursor) {
+    return EmailTypeFilterDTO.builder()
+        .name(name)
+        .size(size)
+        .scrollPosition(parseCursor(cursor))
+        .build();
   }
 }

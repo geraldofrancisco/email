@@ -13,4 +13,5 @@ import org.springframework.data.domain.ScrollPosition;
 public abstract class FilterDTO {
 
   private ScrollPosition scrollPosition;
+  private Integer size;
 }

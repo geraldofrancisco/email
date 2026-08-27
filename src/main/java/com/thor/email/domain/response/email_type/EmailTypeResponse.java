@@ -22,17 +22,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EmailTypeResponse {
 
-  @Schema(description =UNIQUE_IDENTIFIER_DESCRIPTION)
+  @Schema(description = UNIQUE_IDENTIFIER_DESCRIPTION)
   private String id;
 
-  @Schema(description =DATE_TIME_CREATION_REGISTER_DESCRIPTION)
+  @Schema(description = DATE_TIME_CREATION_REGISTER_DESCRIPTION)
   @JsonFormat(pattern = DATE_TIME_PATTERN)
   private LocalDateTime timestampCreatedDate;
 
-  @Schema(description =EMAIL_TYPE_BODY_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_BODY_DESCRIPTION)
   private String body;
 
-  @Schema(description =EMAIL_TYPE_NAME_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_NAME_DESCRIPTION)
   private String name;
 
   @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
