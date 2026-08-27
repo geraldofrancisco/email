@@ -4,6 +4,7 @@ import com.thor.email.application.service.EmailTypeService;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
+import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,6 @@ public class EmailTypeServiceImpl implements EmailTypeService {
   @Override
   public EmailTypePageDTO getByFilter(EmailTypeFilterDTO filter) {
     var response = repository.getByFilter(filter);
-    return null;
+    return EmailTypeMapper.toPageDTO(response);
   }
 }

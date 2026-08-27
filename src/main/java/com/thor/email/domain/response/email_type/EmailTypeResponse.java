@@ -36,5 +36,5 @@ public class EmailTypeResponse {
   private String name;
 
   @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
-  private List<EmailTypeResponse> fields;
+  private List<EmailTypeFieldResponse> fields;
 }

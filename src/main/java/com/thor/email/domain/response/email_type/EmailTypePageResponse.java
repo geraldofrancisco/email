@@ -8,6 +8,6 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
-public class EmailPageResponse extends PageResponse<EmailTypeResponse> {
+public class EmailTypePageResponse extends PageResponse<EmailTypeResponse> {
 
 }

@@ -17,7 +17,7 @@ import static com.thor.email.domain.constants.ProjectConstants.PROJECT_SWAGGER_S
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
-import com.thor.email.domain.response.email_type.EmailPageResponse;
+import com.thor.email.domain.response.email_type.EmailTypePageResponse;
 import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -56,8 +56,8 @@ public interface EmailTypeSwagger {
           content =
           @Content(
               mediaType = APPLICATION_JSON_VALUE,
-              schema = @Schema(implementation = EmailPageResponse.class))))
-  EmailPageResponse getByFilter(
+              schema = @Schema(implementation = EmailTypePageResponse.class))))
+  EmailTypePageResponse getByFilter(
       @RequestParam(required = false) @Parameter(description = EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION) String name,
       @RequestParam(required = false, defaultValue = DEFAULT_PAGE_SIZE_VALUE) @Parameter(description = EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_SIZE_DESCRIPTION) Integer size,
       @RequestHeader(required = false) @Parameter(description = EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_HEADER_CURSOR_DESCRIPTION) String cursor
