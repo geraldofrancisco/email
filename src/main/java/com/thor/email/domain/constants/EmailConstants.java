@@ -6,6 +6,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmailConstants {
 
+  public static final String EMAIL_TABLE_NAME = "email";
+  public static final String EMAIL_TYPE_ID = "tipo-email-id";
+  public static final String EMAIL_CREATION_DATETIME_FIELD = "data-hora-criacao";
+  public static final String EMAIL_TITLE_FIELD = "titulo";
+  public static final String EMAIL_BODY_FIELD = "corpo";
+  public static final String EMAIL_TO_FIELD = "para";
+  public static final String EMAIL_CCO_FIELD = "copia-oculta";
+  public static final String EMAIL_TIMESTAMP_SEND_DATE_FIELD = "data-hora-envio";
+
   public static final String EMAIL_CONTROLLER_TAG_NAME = "Email Controller";
   public static final String EMAIL_CONTROLLER_TAG_DESCRIPTION = "Controller to ensure emails are effectively created and sent when necessary.";
 

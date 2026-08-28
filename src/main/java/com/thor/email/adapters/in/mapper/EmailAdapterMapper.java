@@ -1,5 +1,6 @@
 package com.thor.email.adapters.in.mapper;
 
+import com.thor.email.domain.dto.email.EmailCreateDTO;
 import com.thor.email.domain.dto.email.EmailDTO;
 import com.thor.email.domain.dto.email.EmailFieldDTO;
 import com.thor.email.domain.request.email.EmailCreateFieldsValueRequest;
@@ -14,8 +15,8 @@ import org.bson.types.ObjectId;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmailAdapterMapper {
 
-  public static EmailDTO toCreate(EmailCreateRequest request) {
-    return EmailDTO.builder()
+  public static EmailCreateDTO toCreate(EmailCreateRequest request) {
+    return EmailCreateDTO.builder()
         .typeId(new ObjectId(request.getEmailTypeId()))
         .filledFields(toListFieldDTO(request.getFieldValues()))
         .build();
