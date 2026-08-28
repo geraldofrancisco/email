@@ -1,7 +1,7 @@
 package com.thor.email.domain.response.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_ID;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_NAME;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_ID;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_NAME;
 import static com.thor.email.domain.constants.ProjectConstants.MONGO_ID_EXAMPLE;
 
 import io.swagger.v3.oas.annotations.media.Schema;

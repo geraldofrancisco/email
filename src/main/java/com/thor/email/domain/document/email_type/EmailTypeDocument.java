@@ -1,10 +1,10 @@
 package com.thor.email.domain.document.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_BODY_FIELD;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CREATION_DATETIME_FIELD;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELDS_FIELD;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_NAME_FIELD;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_TABLE_NAME;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_BODY_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CREATION_DATETIME_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELDS_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_NAME_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_TABLE_NAME;
 
 import java.time.LocalDateTime;
 import java.util.List;

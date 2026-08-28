@@ -1,13 +1,12 @@
 package com.thor.email.adapters.out.repository.impl;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_NAME_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_NAME_FIELD;
 import static com.thor.email.domain.constants.ProjectConstants.MONGO_ID_NAME;
 
 import com.thor.email.adapters.out.repository.MongoEmailTypeRepository;
 import com.thor.email.domain.document.email_type.EmailTypeDocument;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
-import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import java.util.ArrayList;

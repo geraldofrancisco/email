@@ -1,1 +1,0 @@
-package com.thor.email.domain.request.email;

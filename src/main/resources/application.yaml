@@ -7,3 +7,21 @@ app:
 spring:
   application:
     name: email
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: ${EMAIL_HOST}
+          socketFactory:
+            port: ${EMAIL_PORT}
+            class: javax.net.ssl.SSLSocketFactory
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000

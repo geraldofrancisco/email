@@ -1,7 +1,7 @@
 package com.thor.email.domain.document.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_NAME_FIELD;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUIRED_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_NAME_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_REQUIRED_FIELD;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

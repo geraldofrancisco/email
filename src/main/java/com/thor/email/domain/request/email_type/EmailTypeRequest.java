@@ -1,11 +1,11 @@
 package com.thor.email.domain.request.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_BODY_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_BODY_REQUIRED;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELDS_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_NAME_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_REQUEST_NAME_REQUIRED;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_BODY_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_REQUEST_BODY_REQUIRED;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELDS_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_REQUEST_NAME_REQUIRED;
 import static com.thor.email.domain.constants.ProjectConstants.INTERPOLATE_VARIABLE_IN_HTML;
 
 import com.thor.email.domain.request.validation.SecondValidationGroup;

@@ -1,8 +1,8 @@
 package com.thor.email.domain.response.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_BODY_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELDS_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_BODY_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELDS_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_NAME_DESCRIPTION;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_TIME_CREATION_REGISTER_DESCRIPTION;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_TIME_PATTERN;
 import static com.thor.email.domain.constants.ProjectConstants.UNIQUE_IDENTIFIER_DESCRIPTION;

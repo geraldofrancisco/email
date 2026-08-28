@@ -1,16 +1,16 @@
 package com.thor.email.adapters.in.rest.swagger;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_CREATE_SUMMARY;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_HEADER_CURSOR_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_SIZE_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_RESPONSE_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_SUMMARY;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_TAG_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_CONTROLLER_TAG_NAME;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_CREATE_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_CREATE_RESPONSE_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_CREATE_SUMMARY;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_HEADER_CURSOR_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_SIZE_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_RESPONSE_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_SUMMARY;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_TAG_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_CONTROLLER_TAG_NAME;
 import static com.thor.email.domain.constants.ProjectConstants.DEFAULT_PAGE_SIZE_VALUE;
 import static com.thor.email.domain.constants.ProjectConstants.PROJECT_SWAGGER_STATUS_CREATED;
 import static com.thor.email.domain.constants.ProjectConstants.PROJECT_SWAGGER_STATUS_OK;

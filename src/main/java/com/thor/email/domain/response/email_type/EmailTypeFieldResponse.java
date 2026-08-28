@@ -1,7 +1,7 @@
 package com.thor.email.domain.response.email_type;
 
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_NAME_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailTypeConstant.EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_NAME_DESCRIPTION;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
