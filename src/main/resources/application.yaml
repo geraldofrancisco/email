@@ -7,6 +7,8 @@ app:
 spring:
   application:
     name: email
+  main:
+    banner-mode: off
   mail:
     host: ${EMAIL_HOST}
     port: ${EMAIL_PORT}
