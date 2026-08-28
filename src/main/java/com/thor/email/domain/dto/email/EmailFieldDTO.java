@@ -1,4 +1,4 @@
-package com.thor.email.domain.dto.email_type;
+package com.thor.email.domain.dto.email;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailTypeFieldDTO {
+public class EmailFieldDTO {
 
-  private String name;
-  private boolean required;
+  private String field;
+
   private String value;
 }

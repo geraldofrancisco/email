@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 public class ProjectConstants {
 
   public static final String INTERPOLATE_VARIABLE_IN_HTML = "{{%s}}";
+  public static final String INTERPOLATE_VARIABLE_IN_HTML_REGEX = "\\\\{\\\\{%s\\\\}\\\\}";
 
   public static final String PROJECT_SWAGGER_STATUS_OK = "200";
   public static final String PROJECT_SWAGGER_STATUS_CREATED = "201";
