@@ -21,4 +21,5 @@ public class EmailController implements EmailSwagger {
   public EmailCreateResponse create(EmailCreateRequest request) {
     return null;
   }
+
 }

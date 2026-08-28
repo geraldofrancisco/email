@@ -10,6 +10,7 @@ import com.thor.email.domain.response.email_type.EmailTypePageResponse;
 import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import com.thor.email.domain.response.email_type.EmailTypeResponse;
 import java.util.List;
+import java.util.Set;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -24,7 +25,7 @@ public class EmailTypeAdapterMapper {
         .build();
   }
 
-  private static List<EmailTypeFieldDTO> toFieldDTO(List<EmailTypeFieldRequest> list) {
+  private static List<EmailTypeFieldDTO> toFieldDTO(Set<EmailTypeFieldRequest> list) {
     return list.parallelStream()
         .map(field -> EmailTypeFieldDTO.builder()
             .name(field.getName())

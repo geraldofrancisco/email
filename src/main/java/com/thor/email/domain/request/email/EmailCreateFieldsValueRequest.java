@@ -10,12 +10,14 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = "value")
 public class EmailCreateFieldsValueRequest {
 
   @Schema(description = EMAIL_CONTROLLER_REQUEST_FIELD_VALUES_FIELD_DESCRIPTION)

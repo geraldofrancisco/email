@@ -17,7 +17,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotEmpty;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,9 +42,7 @@ public class EmailTypeRequest {
   private String name;
 
   @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
-  @Builder.Default
-  @Valid
-  private List<EmailTypeFieldRequest> fields = new ArrayList<>();
+  private HashSet<@Valid EmailTypeFieldRequest> fields = new HashSet<>();
 
   @Hidden
   @AssertTrue(message = EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS, groups = SecondValidationGroup.class)

@@ -9,12 +9,14 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = "required")
 public class EmailTypeFieldRequest {
 
   @Schema(description = EMAIL_TYPE_FIELD_NAME_DESCRIPTION)
