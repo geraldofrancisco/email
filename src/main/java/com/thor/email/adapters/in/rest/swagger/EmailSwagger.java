@@ -70,11 +70,11 @@ public interface EmailSwagger {
 
       @RequestParam(required = false)
       @Parameter(description = EMAIL_CONTROLLER_GET_BY_FILTER_START_CREATED_DATE_DESCRIPTION)
-      String startCreateDate,
+      String startCreatedDate,
 
       @RequestParam(required = false)
       @Parameter(description = EMAIL_CONTROLLER_GET_BY_FILTER_END_CREATED_DATE_DESCRIPTION)
-      String endCreateDate,
+      String endCreatedDate,
 
       @RequestParam(required = false)
       @Parameter(description = EMAIL_CONTROLLER_GET_BY_FILTER_EMAIL_TYPE_ID_DESCRIPTION)

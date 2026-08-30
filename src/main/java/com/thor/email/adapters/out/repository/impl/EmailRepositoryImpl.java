@@ -43,13 +43,13 @@ public final class EmailRepositoryImpl extends RepositoryBaseImpl<EmailDocument>
       list.add(this.equals(EMAIL_TYPE_ID, filter.getEmailTypeId()));
     }
 
-    if (Objects.nonNull(filter.getStartCreateDate())) {
+    if (Objects.nonNull(filter.getStartCreatedDate())) {
       list.add(
-          this.greaterThanOrEqualTo(EMAIL_CREATION_DATETIME_FIELD, filter.getStartCreateDate()));
+          this.greaterThanOrEqualTo(EMAIL_CREATION_DATETIME_FIELD, filter.getStartCreatedDate()));
     }
 
-    if (Objects.nonNull(filter.getEndCreateDate())) {
-      list.add(this.lessThanOrEqualTo(EMAIL_CREATION_DATETIME_FIELD, filter.getEndCreateDate()));
+    if (Objects.nonNull(filter.getEndCreatedDate())) {
+      list.add(this.lessThanOrEqualTo(EMAIL_CREATION_DATETIME_FIELD, filter.getEndCreatedDate()));
     }
 
     if (Objects.nonNull(filter.getStartSendDate())) {

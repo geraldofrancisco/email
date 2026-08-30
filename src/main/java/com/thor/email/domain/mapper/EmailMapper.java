@@ -41,7 +41,7 @@ public class EmailMapper extends PageMapper {
   }
 
   public static EmailFilterDTO toFilter(
-      String startCreateDate, String endCreateDate, String emailTypeId, String startSendDate,
+      String startCreatedDate, String endCreatedDate, String emailTypeId, String startSendDate,
       String endSendDate, String cursor, Integer size
   ) {
     var builder = EmailFilterDTO.builder()
@@ -52,12 +52,12 @@ public class EmailMapper extends PageMapper {
       builder.emailTypeId(new ObjectId(emailTypeId));
     }
 
-    if (DateTimeUtil.validateDateTime(startCreateDate)) {
-      builder.startCreateDate(DateTimeUtil.toLocalDateTime(startCreateDate));
+    if (DateTimeUtil.validateDateTime(startCreatedDate)) {
+      builder.startCreatedDate(DateTimeUtil.toLocalDateTime(startCreatedDate));
     }
 
-    if (DateTimeUtil.validateDateTime(endCreateDate)) {
-      builder.endCreateDate(DateTimeUtil.toLocalDateTime(endCreateDate));
+    if (DateTimeUtil.validateDateTime(endCreatedDate)) {
+      builder.endCreatedDate(DateTimeUtil.toLocalDateTime(endCreatedDate));
     }
 
     if (DateTimeUtil.validateDateTime(startSendDate)) {

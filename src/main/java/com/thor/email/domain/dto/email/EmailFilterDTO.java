@@ -16,8 +16,8 @@ import org.bson.types.ObjectId;
 @EqualsAndHashCode(callSuper = true)
 public class EmailFilterDTO extends FilterDTO {
 
-  private LocalDateTime startCreateDate;
-  private LocalDateTime endCreateDate;
+  private LocalDateTime startCreatedDate;
+  private LocalDateTime endCreatedDate;
   private ObjectId emailTypeId;
   private LocalDateTime startSendDate;
   private LocalDateTime endSendDate;
