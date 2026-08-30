@@ -32,7 +32,7 @@ public class EmailDTO {
   private List<String> to = new ArrayList<>();
 
   @Builder.Default
-  private List<String> cco = new ArrayList<>();
+  private List<String> bcc = new ArrayList<>();
 
   private LocalDateTime timestampSendDate;
 

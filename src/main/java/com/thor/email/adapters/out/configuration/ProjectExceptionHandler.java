@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class ProjectExceptionHandler {
+
   private final MessageSource messageSource;
 
   @ExceptionHandler(Exception.class)

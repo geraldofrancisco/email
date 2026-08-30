@@ -23,7 +23,7 @@ public class EmailTypeFieldRequest {
   @NotEmpty(message = EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED)
   private String name;
 
-  @Schema( description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
+  @Schema(description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
   @Builder.Default
   private boolean required = false;
 }

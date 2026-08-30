@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 public class ProjectConstants {
 
   public static final String INTERPOLATE_VARIABLE_IN_HTML = "{{%s}}";
-  public static final String INTERPOLATE_VARIABLE_IN_HTML_REGEX = "\\\\{\\\\{%s\\\\}\\\\}";
 
   public static final String PROJECT_SWAGGER_STATUS_OK = "200";
   public static final String PROJECT_SWAGGER_STATUS_CREATED = "201";
@@ -35,4 +34,6 @@ public class ProjectConstants {
   public static final String PAGE_RESPONSE_CONTENT_DESCRIPTION = "Pagination content";
   public static final String PAGE_RESPONSE_HAS_NEXT_DESCRIPTION = "There is a next page.";
   public static final String PAGE_RESPONSE_NEXT_POSITION_DESCRIPTION = "Next position to be sought";
+  public static final String HEADER_GET_BY_FILTER_CURSOR_DESCRIPTION = "Optional header to declare the last record queried";
+  public static final String QUERY_GET_BY_FILTER_SIZE_DESCRIPTION = "Optional parameter for query size";
 }

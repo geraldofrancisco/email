@@ -6,11 +6,11 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
 
-public class ValidObjectIdValidator implements ConstraintValidator<ValidObjectId,String> {
+public class ValidObjectIdValidator implements ConstraintValidator<ValidObjectId, String> {
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {
-    if(StringUtils.isBlank(value)){
+    if (StringUtils.isBlank(value)) {
       return true;
     }
 

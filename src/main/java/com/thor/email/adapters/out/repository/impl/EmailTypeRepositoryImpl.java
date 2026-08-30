@@ -10,7 +10,6 @@ import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
 import org.springframework.data.domain.Window;

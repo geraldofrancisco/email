@@ -1,7 +1,7 @@
 package com.thor.email.domain.document.email;
 
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_BODY_FIELD;
-import static com.thor.email.domain.constants.EmailConstants.EMAIL_CCO_FIELD;
+import static com.thor.email.domain.constants.EmailConstants.EMAIL_BCC_FIELD;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATION_DATETIME_FIELD;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_TABLE_NAME;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_TIMESTAMP_SEND_DATE_FIELD;
@@ -26,6 +26,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @AllArgsConstructor
 @Document(collection = EMAIL_TABLE_NAME)
 public class EmailDocument {
+
   @Id
   private ObjectId id;
 
@@ -44,8 +45,8 @@ public class EmailDocument {
   @Field(name = EMAIL_TO_FIELD)
   private List<String> to;
 
-  @Field(name = EMAIL_CCO_FIELD)
-  private List<String> cco;
+  @Field(name = EMAIL_BCC_FIELD)
+  private List<String> bcc;
 
   @Field(name = EMAIL_TIMESTAMP_SEND_DATE_FIELD)
   private LocalDateTime timestampSendDate;

@@ -70,7 +70,7 @@ public class EmailTypeMapper extends PageMapper {
         .nextPosition(window.hasNext() ? window.getContent().stream()
             .map(EmailTypeDTO::getId)
             .map(ObjectId::toString)
-            .reduce((_, second) -> second).orElse(null): null
+            .reduce((_, second) -> second).orElse(null) : null
         )
         .build();
   }
@@ -80,7 +80,6 @@ public class EmailTypeMapper extends PageMapper {
         .map(EmailTypeMapper::toDTO)
         .toList();
   }
-
 
 
   private static List<EmailTypeFieldDTO> toListFieldDTO(List<EmailTypeFieldDocument> list) {

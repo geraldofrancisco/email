@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionMapper {
+
   public static ResponseEntity<ExceptionResponse> toResponse(final HttpStatus status,
       final String message) {
     return toResponse(status, message, null);

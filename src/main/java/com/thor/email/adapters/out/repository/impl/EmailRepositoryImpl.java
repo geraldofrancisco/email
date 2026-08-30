@@ -1,8 +1,8 @@
 package com.thor.email.adapters.out.repository.impl;
 
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATION_DATETIME_FIELD;
+import static com.thor.email.domain.constants.EmailConstants.EMAIL_TIMESTAMP_SEND_DATE_FIELD;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_TYPE_ID;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 import com.thor.email.adapters.out.repository.MongoEmailRepository;
 import com.thor.email.domain.document.email.EmailDocument;
@@ -52,7 +52,14 @@ public final class EmailRepositoryImpl extends RepositoryBaseImpl<EmailDocument>
       list.add(this.lessThanOrEqualTo(EMAIL_CREATION_DATETIME_FIELD, filter.getEndCreateDate()));
     }
 
-    //TODO: colocar as condições do criteria aqui
+    if (Objects.nonNull(filter.getStartSendDate())) {
+      list.add(
+          this.greaterThanOrEqualTo(EMAIL_TIMESTAMP_SEND_DATE_FIELD, filter.getStartSendDate()));
+    }
+
+    if (Objects.nonNull(filter.getEndSendDate())) {
+      list.add(this.lessThanOrEqualTo(EMAIL_TIMESTAMP_SEND_DATE_FIELD, filter.getEndSendDate()));
+    }
 
     return this.getByCriteria(filter, list)
         .map(EmailMapper::toDTO);
