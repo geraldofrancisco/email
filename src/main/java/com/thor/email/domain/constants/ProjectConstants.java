@@ -36,4 +36,5 @@ public class ProjectConstants {
   public static final String PAGE_RESPONSE_NEXT_POSITION_DESCRIPTION = "Next position to be sought";
   public static final String HEADER_GET_BY_FILTER_CURSOR_DESCRIPTION = "Optional header to declare the last record queried";
   public static final String QUERY_GET_BY_FILTER_SIZE_DESCRIPTION = "Optional parameter for query size";
+  public static final String QUERY_GET_BY_FILTER__DIRECTION_DESCRIPTION = "Option parameter for query order";
 }

@@ -35,12 +35,11 @@ public class EmailController implements EmailSwagger {
   @ResponseStatus(HttpStatus.OK)
   @Override
   public EmailPageResponse getByFilter(Integer size, String startCreatedDate, String endCreatedDate,
-      String emailTypeId, String startSendDate, String endSendDate, String cursor) {
+      String emailTypeId, String startSendDate, String endSendDate, String direction,
+      String cursor) {
     var filter = EmailMapper.toFilter(startCreatedDate, endCreatedDate, emailTypeId, startSendDate,
-        endSendDate, cursor, size);
+        endSendDate, cursor, size, direction);
     var response = service.getByFilter(filter);
     return EmailAdapterMapper.toPageResponse(response);
   }
-
-
 }

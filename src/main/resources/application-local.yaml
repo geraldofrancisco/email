@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   mongodb:
     uri: mongodb://root:root@localhost:27017/hebert?authSource=admin

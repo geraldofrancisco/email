@@ -9,6 +9,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Window;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -42,9 +43,10 @@ public class EmailMapper extends PageMapper {
 
   public static EmailFilterDTO toFilter(
       String startCreatedDate, String endCreatedDate, String emailTypeId, String startSendDate,
-      String endSendDate, String cursor, Integer size
+      String endSendDate, String cursor, Integer size, String direction
   ) {
     var builder = EmailFilterDTO.builder()
+        .direction(Direction.valueOf(direction))
         .scrollPosition(parseCursor(cursor))
         .size(size);
 
