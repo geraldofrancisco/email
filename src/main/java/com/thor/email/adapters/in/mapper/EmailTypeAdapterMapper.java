@@ -2,14 +2,18 @@ package com.thor.email.adapters.in.mapper;
 
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
+import com.thor.email.domain.dto.email_type.EmailTypeFieldSubFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
+import com.thor.email.domain.enums.FieldType;
 import com.thor.email.domain.request.email_type.EmailTypeFieldRequest;
+import com.thor.email.domain.request.email_type.EmailTypeFieldSubFieldRequest;
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
 import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import com.thor.email.domain.response.email_type.EmailTypeFieldResponse;
 import com.thor.email.domain.response.email_type.EmailTypePageResponse;
 import com.thor.email.domain.response.email_type.EmailTypeResponse;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -28,6 +32,23 @@ public class EmailTypeAdapterMapper {
   private static List<EmailTypeFieldDTO> toFieldDTO(Set<EmailTypeFieldRequest> list) {
     return list.parallelStream()
         .map(field -> EmailTypeFieldDTO.builder()
+            .name(field.getName())
+            .required(field.isRequired())
+            .type(FieldType.toField(field.getType()))
+            .subFields(toSubfieldDTO(field.getSubFields()))
+            .build()
+        )
+        .toList();
+  }
+
+  private static List<EmailTypeFieldSubFieldDTO> toSubfieldDTO(
+      Set<EmailTypeFieldSubFieldRequest> list) {
+    if (Objects.isNull(list)) {
+      return List.of();
+    }
+
+    return list.parallelStream()
+        .map(field -> EmailTypeFieldSubFieldDTO.builder()
             .name(field.getName())
             .required(field.isRequired())
             .build()

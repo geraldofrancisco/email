@@ -9,7 +9,7 @@ import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_REQU
 import static com.thor.email.domain.constants.ProjectConstants.THYMELEAF_LIST_IN_HTML;
 import static com.thor.email.domain.constants.ProjectConstants.THYMELEAF_VARIABLE_IN_HTML;
 
-import com.thor.email.domain.exception.FieldType;
+import com.thor.email.domain.enums.FieldType;
 import com.thor.email.domain.request.validation.SecondValidationGroup;
 import com.thor.email.domain.request.validation.ValidHTML;
 import io.swagger.v3.oas.annotations.Hidden;
@@ -54,7 +54,7 @@ public class EmailTypeRequest {
   }
 
   private boolean validateFieldInBody(EmailTypeFieldRequest field) {
-    if (field.getType() == FieldType.LIST) {
+    if (FieldType.LIST.name().equals(field.getType())) {
       // 1. Valida se a coleção iterável existe no Thymeleaf (${items})
       String listPattern = String.format(THYMELEAF_VARIABLE_IN_HTML, field.getName());
       boolean hasListInBody = body.contains(THYMELEAF_LIST_IN_HTML) && body.contains(listPattern);

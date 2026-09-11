@@ -5,11 +5,16 @@ import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIEL
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.thor.email.domain.exception.FieldType;
+import com.thor.email.domain.enums.FieldType;
+import com.thor.email.domain.request.email.EmailCreateRequest;
+import com.thor.email.domain.request.validation.SecondValidationGroup;
+import com.thor.email.domain.request.validation.ValueOfEnum;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.GroupSequence;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
@@ -26,6 +31,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "required")
+@GroupSequence({EmailTypeFieldRequest.class, SecondValidationGroup.class})
 public class EmailTypeFieldRequest {
 
   @Schema(description = EMAIL_TYPE_FIELD_NAME_DESCRIPTION)
@@ -33,20 +39,21 @@ public class EmailTypeFieldRequest {
   private String name;
 
   @Schema(description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
-  private boolean required = false;
+  private boolean required = true;
 
   @Schema(description = "Tipo do campo: SIMPLE para variáveis simples ou LIST para coleções iteráveis")
-  @NotNull
-  private FieldType type = FieldType.SIMPLE;
+  @NotBlank(message = "o tipo deve ser preenchido")
+  @ValueOfEnum(enumClass = FieldType.class, message = "tipo inválido")
+  private String type;
 
   @Schema(description = "Atributos internos dos itens da lista (Obrigatório se type = LIST)")
   private Set<@Valid EmailTypeFieldSubFieldRequest> subFields = new HashSet<>();
 
   @Hidden
   @JsonIgnore
-  @AssertTrue(message = "Campos do tipo LIST devem conter pelo menos um subcampo (subFields).")
+  @AssertTrue(message = "Campos do tipo LIST devem conter pelo menos um subcampo (subFields).", groups = SecondValidationGroup.class)
   public boolean isHasSubFieldsIfList() {
-    if (FieldType.LIST.equals(type)) {
+    if (FieldType.LIST.name().equals(type)) {
       return Objects.nonNull(subFields) && !subFields.isEmpty();
     }
     return true;
@@ -54,8 +61,8 @@ public class EmailTypeFieldRequest {
 
   @Hidden
   @JsonIgnore
-  @AssertTrue(message = "Campos do tipo SIMPLE deve estar vazio (subFields).")
+  @AssertTrue(message = "Campos do tipo SIMPLE deve estar vazio (subFields).", groups = SecondValidationGroup.class)
   public boolean isMustBeNullIfTheTypeIsSimple() {
-    return !FieldType.SIMPLE.equals(type) || subFields.isEmpty();
+    return !FieldType.SIMPLE.name().equals(type) || Objects.isNull(subFields) || subFields.isEmpty();
   }
 }

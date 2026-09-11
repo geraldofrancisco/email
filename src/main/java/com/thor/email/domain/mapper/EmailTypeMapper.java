@@ -2,8 +2,10 @@ package com.thor.email.domain.mapper;
 
 import com.thor.email.domain.document.email_type.EmailTypeDocument;
 import com.thor.email.domain.document.email_type.EmailTypeFieldDocument;
+import com.thor.email.domain.document.email_type.EmailTypeFieldSubFieldDocument;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
+import com.thor.email.domain.dto.email_type.EmailTypeFieldSubFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import java.util.List;
@@ -30,6 +32,19 @@ public class EmailTypeMapper extends PageMapper {
         .map(field -> EmailTypeFieldDocument.builder()
             .name(field.getName())
             .required(field.isRequired())
+            .type(field.getType())
+            .subFields(toSubfieldDocument(field.getSubFields()))
+            .build()
+        )
+        .toList();
+  }
+
+  private static List<EmailTypeFieldSubFieldDocument> toSubfieldDocument(
+      List<EmailTypeFieldSubFieldDTO> list) {
+    return list.parallelStream()
+        .map(field -> EmailTypeFieldSubFieldDocument.builder()
+            .name(field.getName())
+            .required(field.isRequired())
             .build()
         )
         .toList();
@@ -48,6 +63,19 @@ public class EmailTypeMapper extends PageMapper {
   private static List<EmailTypeFieldDTO> toFieldsDTO(List<EmailTypeFieldDocument> list) {
     return list.parallelStream()
         .map(field -> EmailTypeFieldDTO.builder()
+            .name(field.getName())
+            .required(field.isRequired())
+            .type(field.getType())
+            .subFields(toSubfieldTO(field.getSubFields()))
+            .build()
+        )
+        .toList();
+  }
+
+  private static List<EmailTypeFieldSubFieldDTO> toSubfieldTO(
+      List<EmailTypeFieldSubFieldDocument> list) {
+    return list.parallelStream()
+        .map(field -> EmailTypeFieldSubFieldDTO.builder()
             .name(field.getName())
             .required(field.isRequired())
             .build()

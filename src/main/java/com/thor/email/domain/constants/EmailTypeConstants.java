@@ -13,6 +13,10 @@ public class EmailTypeConstants {
   public static final String EMAIL_TYPE_FIELDS_FIELD = "campos";
   public static final String EMAIL_TYPE_FIELD_NAME_FIELD = "nome";
   public static final String EMAIL_TYPE_FIELD_REQUIRED_FIELD = "requerido";
+  public static final String EMAIL_TYPE_FIELD_TYPE_FIELD = "tipo";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELDS_FIELD = "sub-campos-tabela";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELD_NAME_FIELD = "nome";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELD_REQUIRED_FIELD = "requerido";
 
   public static final String EMAIL_TYPE_CONTROLLER_TAG_NAME = "Email Type Controller";
   public static final String EMAIL_TYPE_CONTROLLER_TAG_DESCRIPTION = "Controller for types of emails that can be sent.";

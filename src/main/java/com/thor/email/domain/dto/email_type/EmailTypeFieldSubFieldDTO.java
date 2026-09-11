@@ -1,7 +1,5 @@
 package com.thor.email.domain.dto.email_type;
 
-import com.thor.email.domain.exception.FieldType;
-import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
