@@ -3,8 +3,10 @@ package com.thor.email.domain.enums;
 import static com.thor.email.domain.constants.ProjectConstants.CURRENCY_REGEX;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_REGEX;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_TIME_REGEX;
-import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static com.thor.email.domain.constants.ProjectConstants.ONLY_TRUE_REGEX;
 
+import java.util.Arrays;
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,8 +15,22 @@ import lombok.Getter;
 public enum FieldTypeFormat {
   DATE(DATE_REGEX),
   DATE_TIME(DATE_TIME_REGEX),
-  STRING(EMPTY),
+  STRING(ONLY_TRUE_REGEX),
   CURRENCY(CURRENCY_REGEX);
 
-  public final String regex;
+  private final String regex;
+
+  public static boolean validate(FieldTypeFormat type, String value) {
+    if (Objects.isNull(type) || Objects.isNull(value)) {
+      return false;
+    }
+    return value.matches(type.getRegex());
+  }
+
+  public static FieldTypeFormat toFormat(String typeString) {
+    return Arrays.stream(FieldTypeFormat.values())
+        .filter(type -> type.name().equals(typeString))
+        .findFirst()
+        .orElse(null);
+  }
 }

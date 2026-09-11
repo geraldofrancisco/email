@@ -4,6 +4,7 @@ import com.thor.email.application.service.EmailTypeService;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import lombok.RequiredArgsConstructor;
