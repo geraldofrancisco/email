@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "required")
-public class EmailTypeFieldRequest {
+public class EmailTypeFieldSubFieldRequest {
 
   @Schema(description = EMAIL_TYPE_FIELD_NAME_DESCRIPTION)
   @NotEmpty(message = EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED)
@@ -35,27 +35,5 @@ public class EmailTypeFieldRequest {
   @Schema(description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
   private boolean required = false;
 
-  @Schema(description = "Tipo do campo: SIMPLE para variáveis simples ou LIST para coleções iteráveis")
-  @NotNull
-  private FieldType type = FieldType.SIMPLE;
 
-  @Schema(description = "Atributos internos dos itens da lista (Obrigatório se type = LIST)")
-  private Set<@Valid EmailTypeFieldSubFieldRequest> subFields = new HashSet<>();
-
-  @Hidden
-  @JsonIgnore
-  @AssertTrue(message = "Campos do tipo LIST devem conter pelo menos um subcampo (subFields).")
-  public boolean isHasSubFieldsIfList() {
-    if (FieldType.LIST.equals(type)) {
-      return Objects.nonNull(subFields) && !subFields.isEmpty();
-    }
-    return true;
-  }
-
-  @Hidden
-  @JsonIgnore
-  @AssertTrue(message = "Campos do tipo SIMPLE deve estar vazio (subFields).")
-  public boolean isMustBeNullIfTheTypeIsSimple() {
-    return !FieldType.SIMPLE.equals(type) || subFields.isEmpty();
-  }
 }

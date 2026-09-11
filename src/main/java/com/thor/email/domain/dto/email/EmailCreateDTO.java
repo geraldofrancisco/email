@@ -1,7 +1,7 @@
 package com.thor.email.domain.dto.email;
 
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__MANDATORY_FIELDS_NOT_FILLED_IN;
-import static com.thor.email.domain.constants.ProjectConstants.INTERPOLATE_VARIABLE_IN_HTML;
+import static com.thor.email.domain.constants.ProjectConstants.THYMELEAF_VARIABLE_IN_HTML;
 
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
@@ -45,12 +45,12 @@ public class EmailCreateDTO extends EmailDTO {
   public void generateBody() {
     var originalBody = new AtomicReference<>(this.emailType.getBody());
     this.emailType.getFields().stream()
-        .peek(field -> field.setValue(getValueFilledByKey(field.getName())))
+        //.peek(field -> field.setValue(getValueFilledByKey(field.getName())))
         .forEach(field -> {
-          var targetKey = String.format(INTERPOLATE_VARIABLE_IN_HTML, field.getName());
+          var targetKey = String.format(THYMELEAF_VARIABLE_IN_HTML, field.getName());
           var regex = Pattern.quote(targetKey);
-          var safeValue = Matcher.quoteReplacement(field.getValue());
-          originalBody.set(originalBody.get().replaceAll(regex, safeValue));
+          //var safeValue = Matcher.quoteReplacement(field.getValue());
+          //originalBody.set(originalBody.get().replaceAll(regex, safeValue));
         });
     this.body = originalBody.get();
   }

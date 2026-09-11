@@ -11,10 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailTypeFieldDTO {
+public class EmailTypeFieldSubFieldDTO {
 
   private String name;
   private boolean required;
-  private FieldType type = FieldType.SIMPLE;
-  private Set<EmailTypeFieldSubFieldDTO> subFields;
 }
