@@ -5,6 +5,7 @@ import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldSubFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import com.thor.email.domain.enums.FieldType;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import com.thor.email.domain.request.email_type.EmailTypeFieldRequest;
 import com.thor.email.domain.request.email_type.EmailTypeFieldSubFieldRequest;
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
@@ -36,6 +37,7 @@ public class EmailTypeAdapterMapper {
             .required(field.isRequired())
             .type(FieldType.toField(field.getType()))
             .subFields(toSubfieldDTO(field.getSubFields()))
+            .valueType(FieldTypeFormat.toFormat(field.getValueType()))
             .build()
         )
         .toList();

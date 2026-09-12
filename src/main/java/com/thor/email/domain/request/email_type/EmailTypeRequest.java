@@ -44,16 +44,5 @@ public class EmailTypeRequest {
 
   @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
   private HashSet<@Valid EmailTypeFieldRequest> fields = new HashSet<>();
-/*
-  @Hidden
-  @AssertTrue(message = EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS, groups = SecondValidationGroup.class)
-  public boolean isExistsFieldsInBody() {
-    if (fields == null || fields.isEmpty()) {
-      return true;
-    }
-
-    return fields.parallelStream().allMatch(this::validateFieldInBody);
-  }*/
-
 
 }

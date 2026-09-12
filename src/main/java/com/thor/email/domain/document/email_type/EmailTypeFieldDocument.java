@@ -4,8 +4,10 @@ import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIEL
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_REQUIRED_FIELD;
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_SUBFIELDS_FIELD;
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_TYPE_FIELD;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_VALUE_TYPE_FIELD;
 
 import com.thor.email.domain.enums.FieldType;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,6 +29,9 @@ public class EmailTypeFieldDocument {
 
   @Field(EMAIL_TYPE_FIELD_TYPE_FIELD)
   private FieldType type;
+
+  @Field(EMAIL_TYPE_FIELD_VALUE_TYPE_FIELD)
+  private FieldTypeFormat valueType;
 
   @Field(EMAIL_TYPE_FIELD_SUBFIELDS_FIELD)
   private List<EmailTypeFieldSubFieldDocument> subFields;

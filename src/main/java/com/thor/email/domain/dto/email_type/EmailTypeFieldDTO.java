@@ -1,6 +1,7 @@
 package com.thor.email.domain.dto.email_type;
 
 import com.thor.email.domain.enums.FieldType;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -17,12 +18,13 @@ public class EmailTypeFieldDTO {
 
   private String name;
 
-  @Default
-  private boolean required = true;
+  private boolean required ;
 
-  @Default
-  private FieldType type = FieldType.SIMPLE;
+  private FieldType type;
+
+  private FieldTypeFormat valueType;
 
   @Default
   private List<EmailTypeFieldSubFieldDTO> subFields = new ArrayList<>();
+
 }

@@ -3,6 +3,8 @@ package com.thor.email.domain.response.email_type;
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_NAME_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION;
 
+import com.thor.email.domain.enums.FieldType;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,4 +22,10 @@ public class EmailTypeFieldResponse {
 
   @Schema(description = EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION)
   private boolean required;
+
+  private FieldType type;
+
+  private FieldTypeFormat valueType;
+
+
 }

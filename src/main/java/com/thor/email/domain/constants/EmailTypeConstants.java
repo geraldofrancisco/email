@@ -14,6 +14,8 @@ public class EmailTypeConstants {
   public static final String EMAIL_TYPE_FIELD_NAME_FIELD = "nome";
   public static final String EMAIL_TYPE_FIELD_REQUIRED_FIELD = "requerido";
   public static final String EMAIL_TYPE_FIELD_TYPE_FIELD = "tipo";
+  public static final String EMAIL_TYPE_FIELD_VALUE_TYPE_FIELD = "valor-esperado-tipo";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELD_VALUE_TYPE_FIELD = "valor-esperado-tipo";
   public static final String EMAIL_TYPE_FIELD_SUBFIELDS_FIELD = "sub-campos-tabela";
   public static final String EMAIL_TYPE_FIELD_SUBFIELD_NAME_FIELD = "nome";
   public static final String EMAIL_TYPE_FIELD_SUBFIELD_REQUIRED_FIELD = "requerido";

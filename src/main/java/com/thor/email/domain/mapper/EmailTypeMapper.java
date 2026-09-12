@@ -33,6 +33,7 @@ public class EmailTypeMapper extends PageMapper {
             .name(field.getName())
             .required(field.isRequired())
             .type(field.getType())
+            .valueType(field.getValueType())
             .subFields(toSubfieldDocument(field.getSubFields()))
             .build()
         )
@@ -45,6 +46,7 @@ public class EmailTypeMapper extends PageMapper {
         .map(field -> EmailTypeFieldSubFieldDocument.builder()
             .name(field.getName())
             .required(field.isRequired())
+            .valueType(field.getValueType())
             .build()
         )
         .toList();
