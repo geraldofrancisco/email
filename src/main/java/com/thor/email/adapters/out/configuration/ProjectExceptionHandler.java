@@ -12,6 +12,7 @@ import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
+import org.springframework.context.NoSuchMessageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -59,6 +60,11 @@ public class ProjectExceptionHandler {
   }
 
   private String getMessage(String error) {
-    return messageSource.getMessage(error, null, Locale.getDefault());
+    try {
+      return messageSource.getMessage(error, null, Locale.getDefault());
+
+    } catch (NoSuchMessageException e) {
+      return error;
+    }
   }
 }

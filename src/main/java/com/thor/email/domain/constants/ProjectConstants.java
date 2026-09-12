@@ -24,6 +24,7 @@ public class ProjectConstants {
   public static final String DATE_REGEX = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
   public static final String CURRENCY_REGEX = "^(\\d{1,3}(,\\d{3})*|\\d+)\\.\\d{2}$";
   public static final String ONLY_TRUE_REGEX = ".*";
+  public static final String NUMBER_REGEX = "^\\d+$";
 
   public static final String PROJECT_GENERIC_EXCEPTION = "PROJECT_GENERIC_EXCEPTION";
 

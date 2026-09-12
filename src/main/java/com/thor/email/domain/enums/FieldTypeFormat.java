@@ -3,6 +3,7 @@ package com.thor.email.domain.enums;
 import static com.thor.email.domain.constants.ProjectConstants.CURRENCY_REGEX;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_REGEX;
 import static com.thor.email.domain.constants.ProjectConstants.DATE_TIME_REGEX;
+import static com.thor.email.domain.constants.ProjectConstants.NUMBER_REGEX;
 import static com.thor.email.domain.constants.ProjectConstants.ONLY_TRUE_REGEX;
 
 import java.util.Arrays;
@@ -16,7 +17,8 @@ public enum FieldTypeFormat {
   DATE(DATE_REGEX),
   DATE_TIME(DATE_TIME_REGEX),
   STRING(ONLY_TRUE_REGEX),
-  CURRENCY(CURRENCY_REGEX);
+  CURRENCY(CURRENCY_REGEX),
+  NUMBER(NUMBER_REGEX);
 
   private final String regex;
 

@@ -11,6 +11,7 @@ import static com.thor.email.domain.constants.ProjectConstants.THYMELEAF_VARIABL
 
 import com.thor.email.domain.enums.FieldType;
 import com.thor.email.domain.request.validation.SecondValidationGroup;
+import com.thor.email.domain.request.validation.ValidEmailTypeFieldsInBody;
 import com.thor.email.domain.request.validation.ValidHTML;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,6 +29,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ValidEmailTypeFieldsInBody(groups = SecondValidationGroup.class)
 @GroupSequence({EmailTypeRequest.class, SecondValidationGroup.class})
 public class EmailTypeRequest {
 
@@ -42,7 +44,7 @@ public class EmailTypeRequest {
 
   @Schema(description = EMAIL_TYPE_FIELDS_DESCRIPTION)
   private HashSet<@Valid EmailTypeFieldRequest> fields = new HashSet<>();
-
+/*
   @Hidden
   @AssertTrue(message = EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS, groups = SecondValidationGroup.class)
   public boolean isExistsFieldsInBody() {
@@ -51,28 +53,7 @@ public class EmailTypeRequest {
     }
 
     return fields.parallelStream().allMatch(this::validateFieldInBody);
-  }
+  }*/
 
-  private boolean validateFieldInBody(EmailTypeFieldRequest field) {
-    if (FieldType.LIST.name().equals(field.getType())) {
-      // 1. Valida se a coleção iterável existe no Thymeleaf (${items})
-      String listPattern = String.format(THYMELEAF_VARIABLE_IN_HTML, field.getName());
-      boolean hasListInBody = body.contains(THYMELEAF_LIST_IN_HTML) && body.contains(listPattern);
 
-      if (!hasListInBody) {
-        return false;
-      }
-
-      // 2. Valida se todos os subcampos do item existem dentro do template HTML
-      return field.getSubFields().stream().allMatch(subField -> {
-        String propertyAccess = String.format(".%s", subField.getName());
-        String selectionVariable = String.format("*{%s}", subField.getName());
-
-        return body.contains(propertyAccess) || body.contains(selectionVariable);
-      });
-    }
-
-    // Validação padrão para variáveis simples (${userName})
-    return body.contains(String.format(THYMELEAF_VARIABLE_IN_HTML, field.getName()));
-  }
 }

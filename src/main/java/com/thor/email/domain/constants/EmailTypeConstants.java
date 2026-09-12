@@ -32,16 +32,27 @@ public class EmailTypeConstants {
   public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_RESPONSE_DESCRIPTION = "Returns a paginated list of registered email types.";
   public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION = "Optional parameter for lookup by email name";
 
-
-
   public static final String EMAIL_TYPE_REQUEST_BODY_REQUIRED = "EMAIL_TYPE_REQUEST_BODY_REQUIRED";
   public static final String EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS = "EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS";
   public static final String EMAIL_TYPE_REQUEST_NAME_REQUIRED = "EMAIL_TYPE_REQUEST_NAME_REQUIRED";
   public static final String EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED = "EMAIL_TYPE_FIELD_REQUEST_NAME_REQUIRED";
+  public static final String EMAIL_TYPE_FIELD__TYPE_REQUIRED = "EMAIL_TYPE_FIELD__TYPE_REQUIRED";
+  public static final String EMAIL_TYPE_FIELD__TYPE_INVALID = "EMAIL_TYPE_FIELD__TYPE_INVALID";
+  public static final String EMAIL_TYPE_FIELD__VALUE_TYPE_INVALID = "EMAIL_TYPE_FIELD__VALUE_TYPE_INVALID";
+  public static final String EMAIL_TYPE_FIELD__SUBFIELDS_NOT_EMPTY = "EMAIL_TYPE_FIELD__SUBFIELDS_NOT_EMPTY";
+  public static final String EMAIL_TYPE_FIELD__VALUE_TYPE_REQUIRED="EMAIL_TYPE_FIELD__VALUE_TYPE_REQUIRED";
+  public static final String EMAIL_TYPE_FIELD__SUBFIELDS_NOT_TO_BE_FILLED_IN = "EMAIL_TYPE_FIELD__SUBFIELDS_NOT_TO_BE_FILLED_IN";
+  public static final String EMAIL_TYPE_FIELD_FIELDS_SUBFIELDS__NAME_REQUIRED = "EMAIL_TYPE_FIELD_FIELDS_SUBFIELDS__NAME_REQUIRED";
+  public static final String EMAIL_TYPE_FIELD_FIELDS_SUBFIELDS__VALUE_TYPE_REQUIRED = "EMAIL_TYPE_FIELD_FIELDS_SUBFIELDS__VALUE_TYPE_REQUIRED";
 
   public static final String EMAIL_TYPE_BODY_DESCRIPTION = "HTML to be sent via email, containing the variables declared in the 'field.name' field. This field must use the {{name}} format to allow for subsequent variable substitution. Replace double quotes with single quotes and use the minified code.";
   public static final String EMAIL_TYPE_NAME_DESCRIPTION = "Name given to the email type to make it easier to search for and identify which type to send.";
   public static final String EMAIL_TYPE_FIELDS_DESCRIPTION = "Fields to be used in the email. They must exist in the HTML, even if they are not required. If a field is specified that is not declared in the body, the request will return an error.";
   public static final String EMAIL_TYPE_FIELD_NAME_DESCRIPTION = "Name of the field that must exist in the HTML.";
   public static final String EMAIL_TYPE_FIELD_REQUEST_REQUIRED_DESCRIPTION = "Check for mandatory field completion; if the field is not mandatory and is left blank when the email is sent, the default value is an empty string.";
+  public static final String EMAIL_TYPE_FIELD__TYPE_DESCRIPTION = "Simple or list field type";
+  public static final String EMAIL_TYPE_FIELD__VALUE_TYPE_DESCRIPTION = "Type of value to be entered in the field";
+  public static final String EMAIL_TYPE_FIELD__SUBFIELDS_DESCRIPTION = "Sub-fields for when the type is \"list.\" These fields are used to create the table columns.";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELDS__NAME_DESCRIPTION = "Name of the field that must exist in the HTML.";
+  public static final String EMAIL_TYPE_FIELD_SUBFIELDS__VALUE_TYPE_DESCRIPTION = "Type of value to be entered in the field";
 }
