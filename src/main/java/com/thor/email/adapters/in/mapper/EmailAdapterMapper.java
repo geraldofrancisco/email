@@ -4,13 +4,18 @@ import com.thor.email.domain.dto.email.EmailCreateDTO;
 import com.thor.email.domain.dto.email.EmailDTO;
 import com.thor.email.domain.dto.email.EmailFieldDTO;
 import com.thor.email.domain.dto.email.EmailPageDTO;
+import com.thor.email.domain.dto.email.EmailSubfieldDTO;
 import com.thor.email.domain.request.email.EmailCreateFieldsValueRequest;
 import com.thor.email.domain.request.email.EmailCreateRequest;
+import com.thor.email.domain.request.email.EmailCreateSubfieldRequest;
 import com.thor.email.domain.response.email.EmailCreateResponse;
 import com.thor.email.domain.response.email.EmailPageResponse;
 import com.thor.email.domain.response.email.EmailResponse;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -26,16 +31,33 @@ public class EmailAdapterMapper {
   }
 
   private static List<EmailFieldDTO> toListFieldDTO(Set<EmailCreateFieldsValueRequest> list) {
+    if (Objects.isNull(list)) {
+      return new ArrayList<>();
+    }
     return list.parallelStream()
         .map(EmailAdapterMapper::toFieldDTO)
-        .toList();
+        .collect(Collectors.toList());
   }
 
   private static EmailFieldDTO toFieldDTO(EmailCreateFieldsValueRequest request) {
     return EmailFieldDTO.builder()
-        .field(request.getField())
+        .field(request.getName())
         .value(request.getValue())
+        .subfields(toListSubFieldDTO(request.getSubfields()))
         .build();
+  }
+
+  private static List<EmailSubfieldDTO> toListSubFieldDTO(Set<EmailCreateSubfieldRequest> list) {
+    if (Objects.isNull(list)) {
+      return new ArrayList<>();
+    }
+    return list.parallelStream()
+        .map(EmailAdapterMapper::toSubFieldDTO)
+        .collect(Collectors.toList());
+  }
+
+  private static EmailSubfieldDTO toSubFieldDTO(EmailCreateSubfieldRequest request) {
+    return EmailSubfieldDTO.builder().build();
   }
 
   public static EmailCreateResponse toCreateResponse(EmailDTO dto) {
@@ -53,7 +75,7 @@ public class EmailAdapterMapper {
         .build();
   }
 
-  private static List<EmailResponse> toListResponse(List<EmailDTO> list){
+  private static List<EmailResponse> toListResponse(List<EmailDTO> list) {
     return list.parallelStream()
         .map(EmailAdapterMapper::toResponse)
         .toList();

@@ -7,7 +7,6 @@ import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__REQUE
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
-import java.util.HashSet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "value")
-public class EmailCreateFieldsValueRequest {
+public class EmailCreateSubfieldRequest {
 
   @Schema(description = EMAIL_CONTROLLER_REQUEST_FIELD_VALUES_FIELD_DESCRIPTION)
   @NotBlank(message = EMAIL_CREATE__REQUEST_FIELD_VALUES_FIELD_REQUIRED)
@@ -29,7 +28,4 @@ public class EmailCreateFieldsValueRequest {
   @NotBlank(message = EMAIL_CREATE__REQUEST_FIELD_VALUES_VALUE_REQUIRED)
   private String value;
 
-
-  @Schema(description = "")
-  private HashSet<EmailCreateSubfieldRequest> subfields;
 }

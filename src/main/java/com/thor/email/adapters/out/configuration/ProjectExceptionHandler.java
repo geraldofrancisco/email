@@ -37,9 +37,16 @@ public class ProjectExceptionHandler {
 
   @ExceptionHandler(ProjectException.class)
   public ResponseEntity<ExceptionResponse> handlerProjectException(ProjectException ex) {
-    var message = getMessage(ex.getMessage());
-    log.info(message, Objects.requireNonNullElse(ex.getE(), ex));
-    return ExceptionMapper.toResponse(ex.getStatus(), message);
+    if(Objects.isNull(ex.getList())) {
+      var message = getMessage(ex.getMessage());
+      log.info(message, Objects.requireNonNullElse(ex.getE(), ex));
+      return ExceptionMapper.toResponse(ex.getStatus(), message);
+    }
+    var list = ex.getList().parallelStream()
+        .map(this::getError)
+        .toList();
+
+    return ExceptionMapper.toResponse(ex.getStatus(), list);
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -49,6 +56,12 @@ public class ProjectExceptionHandler {
         .map(this::getError)
         .toList();
     return ExceptionMapper.toResponse(HttpStatus.BAD_REQUEST, list);
+  }
+
+  private ExceptionFieldResponse getError(String error) {
+    return ExceptionFieldResponse.builder()
+        .message(getMessage(error))
+        .build();
   }
 
   private ExceptionFieldResponse getError(FieldError error) {

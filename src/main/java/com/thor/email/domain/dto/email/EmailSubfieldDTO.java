@@ -1,10 +1,7 @@
 package com.thor.email.domain.dto.email;
 
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,12 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailFieldDTO {
+public class EmailSubfieldDTO {
 
   private String field;
 
   private String value;
-
-  @Default
-  private List<EmailSubfieldDTO> subfields = new ArrayList<>();
 }
