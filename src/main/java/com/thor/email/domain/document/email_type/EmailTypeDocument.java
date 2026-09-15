@@ -35,7 +35,4 @@ public class EmailTypeDocument {
 
   @Field(EMAIL_TYPE_NAME_FIELD)
   private String name;
-
-  @Field(EMAIL_TYPE_FIELDS_FIELD)
-  private List<EmailTypeFieldDocument> fields;
 }

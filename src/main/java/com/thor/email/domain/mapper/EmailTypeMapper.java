@@ -3,7 +3,6 @@ package com.thor.email.domain.mapper;
 import com.thor.email.domain.document.email_type.EmailTypeDocument;
 import com.thor.email.domain.document.email_type.EmailTypeFieldDocument;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
-import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
 import java.util.List;
@@ -21,18 +20,7 @@ public class EmailTypeMapper extends PageMapper {
         .timestampCreatedDate(dto.getTimestampCreatedDate())
         .body(dto.getBody())
         .name(dto.getName())
-        .fields(toFieldsDocument(dto.getFields()))
         .build();
-  }
-
-  private static List<EmailTypeFieldDocument> toFieldsDocument(List<EmailTypeFieldDTO> list) {
-    return list.parallelStream()
-        .map(field -> EmailTypeFieldDocument.builder()
-            .name(field.getName())
-            .required(field.isRequired())
-            .build()
-        )
-        .toList();
   }
 
   public static EmailTypeDTO toDTO(EmailTypeDocument document) {
@@ -41,18 +29,7 @@ public class EmailTypeMapper extends PageMapper {
         .timestampCreatedDate(document.getTimestampCreatedDate())
         .name(document.getName())
         .body(document.getBody())
-        .fields(toFieldsDTO(document.getFields()))
         .build();
-  }
-
-  private static List<EmailTypeFieldDTO> toFieldsDTO(List<EmailTypeFieldDocument> list) {
-    return list.parallelStream()
-        .map(field -> EmailTypeFieldDTO.builder()
-            .name(field.getName())
-            .required(field.isRequired())
-            .build()
-        )
-        .toList();
   }
 
   public static EmailTypeFilterDTO toFilter(String name, Integer size, String cursor) {
@@ -75,19 +52,4 @@ public class EmailTypeMapper extends PageMapper {
         .build();
   }
 
-  private static List<EmailTypeDTO> toListPageDTO(List<EmailTypeDocument> list) {
-    return list.parallelStream()
-        .map(EmailTypeMapper::toDTO)
-        .toList();
-  }
-
-
-  private static List<EmailTypeFieldDTO> toListFieldDTO(List<EmailTypeFieldDocument> list) {
-    return list.stream()
-        .map(f -> EmailTypeFieldDTO.builder()
-            .name(f.getName())
-            .required(f.isRequired())
-            .build()
-        ).toList();
-  }
 }
