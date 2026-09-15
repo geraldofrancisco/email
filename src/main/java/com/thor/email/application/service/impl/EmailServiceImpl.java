@@ -29,6 +29,7 @@ public class EmailServiceImpl implements EmailService {
     dto.setEmailType(type);
     dto.validateFields();
 
+
     return repository.save(dto);
   }
 

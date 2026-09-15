@@ -8,6 +8,7 @@ import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldSubFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
+import com.thor.email.domain.enums.FieldTypeFormat;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -68,6 +69,7 @@ public class EmailTypeMapper extends PageMapper {
             .name(field.getName())
             .required(field.isRequired())
             .type(field.getType())
+            .valueType(field.getValueType())
             .subFields(toSubfieldTO(field.getSubFields()))
             .build()
         )

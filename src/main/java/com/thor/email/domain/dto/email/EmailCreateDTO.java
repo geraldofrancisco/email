@@ -1,8 +1,5 @@
 package com.thor.email.domain.dto.email;
 
-import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__MANDATORY_FIELDS_NOT_FILLED_IN;
-import static com.thor.email.domain.constants.ProjectConstants.THYMELEAF_VARIABLE_IN_HTML;
-
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFieldSubFieldDTO;
@@ -13,15 +10,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.StringUtils;
-
 
 @Data
 @SuperBuilder
@@ -41,11 +35,11 @@ public class EmailCreateDTO extends EmailDTO {
       return;
     }
 
-    // 1. Garante que todos os campos/subcampos do schema existam no DTO (definindo "" para ausentes)
+    // 1. Garante mutação de dados em thread única (evita Race Condition e listas nulas)
     ensureDefaultFields();
 
-    // 2. Acumula os erros de validação dos campos e subcampos via Stream
-    List<String> errors = this.emailType.getFields().parallelStream()
+    // 2. Processamento sequencial de validação (thread-safe)
+    List<String> errors = this.emailType.getFields().stream()
         .flatMap(this::validateFieldAndSubfields)
         .toList();
 
@@ -68,7 +62,7 @@ public class EmailCreateDTO extends EmailDTO {
     EmailFieldDTO sentField = getOrCreateField(typeField.getName());
     String fieldValue = sentField.getValue();
 
-    // Stream com os erros do campo pai
+    // Valida o campo principal (Seja ele do tipo SIMPLE ou estruturado com subfields)
     Stream<String> parentErrors = validateSingleField(
         typeField.getName(),
         fieldValue,
@@ -77,7 +71,7 @@ public class EmailCreateDTO extends EmailDTO {
         "O campo obrigatório '%s' não foi informado."
     );
 
-    // Stream com os erros dos subcampos
+    // Valida subcampos caso existam
     Stream<String> subfieldErrors = Optional.ofNullable(typeField.getSubFields())
         .orElseGet(Collections::emptyList)
         .stream()
@@ -86,8 +80,11 @@ public class EmailCreateDTO extends EmailDTO {
     return Stream.concat(parentErrors, subfieldErrors);
   }
 
-  private Stream<String> validateSubfield(String parentName, EmailTypeFieldSubFieldDTO typeSubField,
-      EmailFieldDTO sentField) {
+  private Stream<String> validateSubfield(
+      String parentName,
+      EmailTypeFieldSubFieldDTO typeSubField,
+      EmailFieldDTO sentField
+  ) {
     EmailSubfieldDTO sentSubfield = getOrCreateSubfield(sentField, typeSubField.getName());
     String subfieldValue = sentSubfield.getValue();
     String fullName = parentName + "." + typeSubField.getName();
@@ -119,13 +116,19 @@ public class EmailCreateDTO extends EmailDTO {
     return errors.stream();
   }
 
-  private void validateFormat(String fieldName, String value, FieldTypeFormat valueType,
-      List<String> errors) {
+  private void validateFormat(
+      String fieldName,
+      String value,
+      FieldTypeFormat valueType,
+      List<String> errors
+  ) {
     if (valueType != null && StringUtils.isNotBlank(valueType.getRegex())) {
       try {
         if (!Pattern.matches(valueType.getRegex(), value)) {
-          errors.add(String.format("O valor '%s' do campo '%s' é inválido para o formato '%s'.",
-              value, fieldName, valueType.name()));
+          errors.add(String.format(
+              "O valor '%s' do campo '%s' é inválido para o formato '%s'.",
+              value, fieldName, valueType.name()
+          ));
         }
       } catch (Exception e) {
         errors.add(String.format("Falha ao processar validação do campo '%s'.", fieldName));
@@ -164,5 +167,4 @@ public class EmailCreateDTO extends EmailDTO {
           return newSubfield;
         });
   }
-
 }
