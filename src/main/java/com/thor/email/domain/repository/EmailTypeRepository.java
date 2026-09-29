@@ -12,5 +12,7 @@ public interface EmailTypeRepository {
 
   Window<EmailTypeDTO> getByFilter(EmailTypeFilterDTO filter);
 
+  Optional<EmailTypeDTO> getByName(String name);
+
   Optional<EmailTypeDTO> getById(ObjectId id);
 }

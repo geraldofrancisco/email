@@ -15,6 +15,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.domain.Window;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -48,7 +49,17 @@ public class EmailTypeRepositoryImpl extends RepositoryBaseImpl<EmailTypeDocumen
   }
 
   @Override
-  public Optional<EmailTypeDTO> getById(ObjectId id) {
-    return repository.findById(id).map(EmailTypeMapper::toDTO);
+  public Optional<EmailTypeDTO> getByName(String name) {
+    var criteria = equals(EMAIL_TYPE_NAME_FIELD, name);
+    var response = mongoTemplate.findOne(new Query(criteria), EmailTypeDocument.class);
+    return Optional.ofNullable(response)
+        .map(EmailTypeMapper::toDTO);
   }
+
+  @Override
+  public Optional<EmailTypeDTO> getById(ObjectId id) {
+    return repository.findById(id)
+        .map(EmailTypeMapper::toDTO);
+  }
+
 }

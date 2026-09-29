@@ -26,5 +26,4 @@ public class EmailTypeDTO {
 
   private String body;
 
-  private List<EmailTypeFieldDTO> fields;
 }

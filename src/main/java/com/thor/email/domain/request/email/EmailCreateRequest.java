@@ -1,11 +1,13 @@
 package com.thor.email.domain.request.email;
 
+import static com.thor.email.domain.constants.EmailConstants.EMAIL__BODY_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL__EMAIL_TYPE_ID_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CONTROLLER_REQUEST_FIELD_VALUES_DESCRIPTION;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_INVALID;
 import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_REQUIRED;
 
 import com.thor.email.domain.request.validation.SecondValidationGroup;
+import com.thor.email.domain.request.validation.ValidHTML;
 import com.thor.email.domain.request.validation.ValidObjectId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.GroupSequence;
@@ -21,15 +23,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@GroupSequence({EmailCreateRequest.class, SecondValidationGroup.class})
 public class EmailCreateRequest {
 
-  @Schema(description = EMAIL__EMAIL_TYPE_ID_DESCRIPTION)
-  @NotBlank(message = EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_REQUIRED)
-  @ValidObjectId(message = EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_INVALID, groups = SecondValidationGroup.class)
-  private String emailTypeId;
+  @Schema(description = EMAIL__BODY_DESCRIPTION)
+  @ValidHTML
+  private String body;
 
-  @Schema(description = EMAIL_CONTROLLER_REQUEST_FIELD_VALUES_DESCRIPTION)
-  private HashSet<@Valid EmailCreateFieldsValueRequest> fieldValues;
 
 }
