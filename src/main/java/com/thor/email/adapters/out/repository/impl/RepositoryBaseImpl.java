@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 public abstract class RepositoryBaseImpl<DOCUMENT> {
 
-  private final MongoTemplate mongoTemplate;
+  protected final MongoTemplate mongoTemplate;
   private final Class<DOCUMENT> entityClass;
 
   protected RepositoryBaseImpl(MongoTemplate mongoTemplate) {

@@ -27,9 +27,14 @@ public class EmailTypeConstants {
   public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_DESCRIPTION = "Get all created emails in a paginated manner.";
   public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_RESPONSE_DESCRIPTION = "Returns a paginated list of registered email types.";
   public static final String EMAIL_TYPE_CONTROLLER_GET_BY_FILTER_QUERY_PARAM_NAME_DESCRIPTION = "Optional parameter for lookup by email name";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_ID_SUMMARY = "Get email type by ID.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_ID_DESCRIPTION = "Returns the registered email type for the given ID.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_ID_RESPONSE_DESCRIPTION = "The email type matching the requested ID.";
+  public static final String EMAIL_TYPE_CONTROLLER_GET_BY_ID_ID_DESCRIPTION = "Unique identifier of the email type.";
 
 
 
+  public static final String EMAIL_TYPE_GET_BY_ID_INVALID = "EMAIL_TYPE_GET_BY_ID_INVALID";
   public static final String EMAIL_TYPE_REQUEST_BODY_REQUIRED = "EMAIL_TYPE_REQUEST_BODY_REQUIRED";
   public static final String EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS = "EMAIL_TYPE_REQUEST_BODY_CONTAINS_ALL_FIELDS";
   public static final String EMAIL_TYPE_REQUEST_NAME_REQUIRED = "EMAIL_TYPE_REQUEST_NAME_REQUIRED";

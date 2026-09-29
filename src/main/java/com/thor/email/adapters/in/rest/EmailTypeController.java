@@ -7,6 +7,7 @@ import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.request.email_type.EmailTypeRequest;
 import com.thor.email.domain.response.email_type.EmailTypeCreateResponse;
 import com.thor.email.domain.response.email_type.EmailTypePageResponse;
+import com.thor.email.domain.response.email_type.EmailTypeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,5 +39,12 @@ public class EmailTypeController implements EmailTypeSwagger {
     var filter = EmailTypeMapper.toFilter(name, size, cursor);
     var response = service.getByFilter(filter);
     return EmailTypeAdapterMapper.toPageResponse(response);
+  }
+
+  @GetMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  @Override
+  public EmailTypeResponse getById(String id) {
+    return EmailTypeAdapterMapper.toResponse(service.getById(id));
   }
 }

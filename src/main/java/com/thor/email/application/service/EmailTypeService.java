@@ -10,4 +10,7 @@ public interface EmailTypeService {
 
   EmailTypePageDTO getByFilter(EmailTypeFilterDTO filter);
 
+  EmailTypeDTO getByName(String name);
+
+  EmailTypeDTO getById(String id);
 }

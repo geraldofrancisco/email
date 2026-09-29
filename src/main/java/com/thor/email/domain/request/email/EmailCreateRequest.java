@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@GroupSequence({EmailCreateRequest.class, SecondValidationGroup.class})
 public class EmailCreateRequest {
 
   @Schema(description = EMAIL__BODY_DESCRIPTION)

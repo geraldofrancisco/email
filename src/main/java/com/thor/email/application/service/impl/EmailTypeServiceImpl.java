@@ -1,12 +1,17 @@
 package com.thor.email.application.service.impl;
 
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_GET_BY_ID_INVALID;
+
 import com.thor.email.application.service.EmailTypeService;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
 import com.thor.email.domain.dto.email_type.EmailTypeFilterDTO;
 import com.thor.email.domain.dto.email_type.EmailTypePageDTO;
+import com.thor.email.domain.exception.ProjectBusinessException;
+import com.thor.email.domain.exception.ProjectNotFoundException;
 import com.thor.email.domain.mapper.EmailTypeMapper;
 import com.thor.email.domain.repository.EmailTypeRepository;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +22,12 @@ public class EmailTypeServiceImpl implements EmailTypeService {
 
   @Override
   public EmailTypeDTO create(EmailTypeDTO dto) {
-    return repository.save(dto);
+    return repository.getByName(dto.getName())
+        .map(type -> {
+          type.setBody(dto.getBody());
+          return repository.save(type);
+        })
+        .orElseGet(() -> repository.save(dto));
   }
 
   @Override
@@ -25,4 +35,21 @@ public class EmailTypeServiceImpl implements EmailTypeService {
     var response = repository.getByFilter(filter);
     return EmailTypeMapper.toPageDTO(response);
   }
+
+  @Override
+  public EmailTypeDTO getByName(String name) {
+    return repository.getByName(name)
+        .orElseThrow(() -> new ProjectNotFoundException("Email type not found"));
+  }
+
+  @Override
+  public EmailTypeDTO getById(String id) {
+    if (!ObjectId.isValid(id)) {
+      throw new ProjectBusinessException(EMAIL_TYPE_GET_BY_ID_INVALID);
+    }
+
+    return repository.getById(new ObjectId(id))
+        .orElseThrow(() -> new ProjectNotFoundException("Email type not found"));
+  }
+
 }
