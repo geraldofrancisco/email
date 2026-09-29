@@ -1,19 +1,9 @@
 package com.thor.email.domain.request.email;
 
 import static com.thor.email.domain.constants.EmailConstants.EMAIL__BODY_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailConstants.EMAIL__EMAIL_TYPE_ID_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailConstants.EMAIL_CONTROLLER_REQUEST_FIELD_VALUES_DESCRIPTION;
-import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_INVALID;
-import static com.thor.email.domain.constants.EmailConstants.EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_REQUIRED;
 
-import com.thor.email.domain.request.validation.SecondValidationGroup;
 import com.thor.email.domain.request.validation.ValidHTML;
-import com.thor.email.domain.request.validation.ValidObjectId;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.GroupSequence;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import java.util.HashSet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

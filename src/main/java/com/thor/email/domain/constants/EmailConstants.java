@@ -45,11 +45,7 @@ public class EmailConstants {
   public static final String EMAIL_CONTROLLER_GET_BY_FILTER_START_SEND_DATE_DESCRIPTION = "Parameter indicating the minimum date/time for the email dispatch used for the query.";
   public static final String EMAIL_CONTROLLER_GET_BY_FILTER_END_SEND_DATE_DESCRIPTION = "Parameter indicating the maximum date/time for the email dispatch to be queried.";
 
-  public static final String EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_REQUIRED = "EMAIL_CREATE_REQUEST_EMAIL_TYPE_ID_REQUIRED";
-  public static final String EMAIL_CREATE__REQUEST_EMAIL_TYPE_ID_INVALID = "EMAIL_CREATE_REQUEST_EMAIL_TYPE_ID_INVALID";
   public static final String EMAIL_CREATE__REQUEST_FIELD_VALUES_FIELD_REQUIRED = "EMAIL_CREATE_REQUEST_FIELD_VALUES_FIELD_REQUIRED";
   public static final String EMAIL_CREATE__REQUEST_FIELD_VALUES_VALUE_REQUIRED = "EMAIL_CREATE_REQUEST_FIELD_VALUES_VALUE_REQUIRED";
-  public static final String EMAIL_CREATE__EMAIL_TYPE_NOT_FOUND = "EMAIL_CREATE__EMAIL_TYPE_NOT_FOUND";
-  public static final String EMAIL_CREATE__MANDATORY_FIELDS_NOT_FILLED_IN = "EMAIL_CREATE__MANDATORY_FIELDS_NOT_FILLED_IN";
 
 }

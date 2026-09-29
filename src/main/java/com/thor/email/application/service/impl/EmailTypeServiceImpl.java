@@ -1,6 +1,7 @@
 package com.thor.email.application.service.impl;
 
 import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_GET_BY_ID_INVALID;
+import static com.thor.email.domain.constants.EmailTypeConstants.EMAIL_TYPE_NOT_FOUND;
 
 import com.thor.email.application.service.EmailTypeService;
 import com.thor.email.domain.dto.email_type.EmailTypeDTO;
@@ -39,7 +40,7 @@ public class EmailTypeServiceImpl implements EmailTypeService {
   @Override
   public EmailTypeDTO getByName(String name) {
     return repository.getByName(name)
-        .orElseThrow(() -> new ProjectNotFoundException("Email type not found"));
+        .orElseThrow(() -> new ProjectNotFoundException(EMAIL_TYPE_NOT_FOUND));
   }
 
   @Override
@@ -49,7 +50,7 @@ public class EmailTypeServiceImpl implements EmailTypeService {
     }
 
     return repository.getById(new ObjectId(id))
-        .orElseThrow(() -> new ProjectNotFoundException("Email type not found"));
+        .orElseThrow(() -> new ProjectNotFoundException(EMAIL_TYPE_NOT_FOUND));
   }
 
 }
